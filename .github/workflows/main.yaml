@@ -30,8 +30,8 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        build-args:
-        - SPEEDTEST_VERSION=${{ env.CI_REF_NAME }}
+        build-args: |
+          SPEEDTEST_VERSION=${{ env.CI_REF_NAME }}
         platforms: linux/amd64,linux/arm64
         push: true
         tags: |
