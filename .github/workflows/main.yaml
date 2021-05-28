@@ -16,10 +16,7 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - uses: FranzDiebold/github-env-vars-action@v2
-    - name: Print environment variables
-      run: |
-        echo "CI_REF_NAME=$CI_REF_NAME"       
+    - uses: FranzDiebold/github-env-vars-action@v2    
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v1
     - name: Setup Docker Buildx
