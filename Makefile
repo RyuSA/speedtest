@@ -1,13 +1,17 @@
+REPOSITORY_NAME=ryusa/speedtest
+REPOSITORY_NAME_PUSHER=ryusa/speedtest
 SPEEDTEST_VERSION=v2.1.3
+CONTAINER_IMAGE_NAME=${REPOSITORY_NAME}:${SPEEDTEST_VERSION}
+CONTAINER_IMAGE_NAME_PUSHER=${REPOSITORY_NAME_PUSHER}:${SPEEDTEST_VERSION}
 
 build: 
-	docker build -t ryusa/speedtest:${SPEEDTEST_VERSION} . --build-arg SPEEDTEST_VERSION=${SPEEDTEST_VERSION}
+	docker build -t ${CONTAINER_IMAGE_NAME} . --build-arg SPEEDTEST_VERSION=${SPEEDTEST_VERSION}
 
 build-pusher:
-	docker build -t ryusa/speedtest-pusher:${SPEEDTEST_VERSION} ./pusher/
+	docker build -t ${CONTAINER_IMAGE_NAME_PUSHER} ./pusher/
 
 push: build
-	docker push ryusa/speedtest:${SPEEDTEST_VERSION}
+	docker push ${CONTAINER_IMAGE_NAME}
 
 push-pusher: build-pusher
-	docker push ryusa/speedtest-pusher:${SPEEDTEST_VERSION}
+	docker push ${CONTAINER_IMAGE_NAME_PUSHER}

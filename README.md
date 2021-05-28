@@ -68,3 +68,15 @@ optional arguments:
                         option to avoid a MemoryError
   --version             Show the version number and exit
 ```
+
+## Build
+
+You can use Makefile in the project-root directory.
+
+```bash
+# Build speedtest image
+❯ make build
+
+# Push the speedtest image
+❯ make push
+```
